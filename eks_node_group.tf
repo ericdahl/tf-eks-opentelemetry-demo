@@ -17,7 +17,7 @@ resource "aws_eks_node_group" "default" {
   capacity_type  = "ON_DEMAND"
   disk_size      = 20
 
-  ami_type = "AL2_x86_64"
+  ami_type = "AL2023_x86_64_STANDARD"
 
   depends_on = [
     aws_iam_role_policy_attachment.eks_worker_node_policy,
