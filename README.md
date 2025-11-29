@@ -16,3 +16,7 @@ flux bootstrap github \
   --private=false
 
 ```
+
+## Monitor
+
+`flux logs --follow --level=info`
