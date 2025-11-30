@@ -13,22 +13,34 @@ spec:
             endpoint: 0.0.0.0:4317
           http:
             endpoint: 0.0.0.0:4318
-    
+
+      hostmetrics:
+        collection_interval: 30s
+        scrapers:
+          cpu: {}
+          load: {}
+          memory: {}
+          disk: {}
+          filesystem: {}
+          network: {}
+
     processors:
       batch:
         timeout: 10s
-    
+
     exporters:
       debug:
         verbosity: detailed
-    
+      # later: add your real metrics backend exporter here
+
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
           exporters: [debug]
+
         metrics:
-          receivers: [otlp]
+          receivers: [otlp, hostmetrics]
           processors: [batch]
           exporters: [debug]
