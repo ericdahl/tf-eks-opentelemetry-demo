@@ -20,3 +20,19 @@ flux bootstrap github \
 ## Monitor
 
 `flux logs --follow --level=info`
+
+
+### Cleanup
+
+```
+# necessary or else things like k8s managed LBs aren't removed, so VPC can't be removed
+flux delete kustomization apps --silent
+
+# not really needed
+flux delete kustomization infrastructure --silent
+
+# not really needed
+flux uninstall
+
+terraform destroy
+```
