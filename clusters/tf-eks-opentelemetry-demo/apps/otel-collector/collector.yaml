@@ -12,6 +12,14 @@ spec:
     limits:
       cpu: 500m
       memory: 256Mi
+  volumeMounts:
+    - name: hostfs
+      mountPath: /hostfs
+      readOnly: true
+  volumes:
+    - name: hostfs
+      hostPath:
+        path: /
   config:
     receivers:
       otlp:
@@ -22,6 +30,7 @@ spec:
             endpoint: 0.0.0.0:4318
 
       hostmetrics:
+        root_path: /hostfs
         collection_interval: 30s
         scrapers:
           cpu: {}
