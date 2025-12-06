@@ -8,3 +8,4 @@ resources:
   - sources/prometheus.yaml
   - controllers/cert-manager.yaml
   - controllers/opentelemetry-operator.yaml
+  - controllers/kube-prometheus-stack.yaml
