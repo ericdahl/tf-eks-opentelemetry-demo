@@ -1,17 +1,18 @@
 apiVersion: opentelemetry.io/v1beta1
 kind: OpenTelemetryCollector
 metadata:
-  name: agent
+  name: gateway
   namespace: otel
 spec:
-  mode: daemonset
+  mode: deployment
+  replicas: 1
   resources:
     requests:
-      cpu: 50m
-      memory: 256Mi
+      cpu: 100m
+      memory: 512Mi
     limits:
-      cpu: 500m
-      memory: 256Mi
+      cpu: 1000m
+      memory: 512Mi
   config:
     receivers:
       otlp:
@@ -21,34 +22,22 @@ spec:
           http:
             endpoint: 0.0.0.0:4318
 
-      hostmetrics:
-        collection_interval: 30s
-        scrapers:
-          cpu: {}
-          load: {}
-          memory: {}
-          disk: {}
-          filesystem: {}
-          network: {}
-
     processors:
       batch:
         timeout: 10s
 
     exporters:
-      otlp:
-        endpoint: gateway-collector.otel.svc.cluster.local:4317
-        tls:
-          insecure: true
+      debug:
+        verbosity: detailed
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [otlp]
+          exporters: [debug]
 
         metrics:
-          receivers: [otlp, hostmetrics]
+          receivers: [otlp]
           processors: [batch]
-          exporters: [otlp]
+          exporters: [debug]
