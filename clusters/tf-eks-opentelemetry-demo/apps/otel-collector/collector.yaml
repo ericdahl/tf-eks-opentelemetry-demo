@@ -42,12 +42,19 @@ spec:
           insecure: true
 
     service:
+      telemetry:
+        metrics:
+          readers:
+            - periodic:
+                exporter:
+                  prometheus:
+                    host: "0.0.0.0"
+                    port: 8888
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
           exporters: [otlp]
-
         metrics:
           receivers: [otlp, hostmetrics]
           processors: [batch]
