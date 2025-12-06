@@ -31,15 +31,6 @@ spec:
           limits:
             cpu: 1000m
             memory: 1Gi
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: gp2
-              accessModes:
-                - ReadWriteOnce
-              resources:
-                requests:
-                  storage: 10Gi
     grafana:
       enabled: true
       adminPassword: admin
