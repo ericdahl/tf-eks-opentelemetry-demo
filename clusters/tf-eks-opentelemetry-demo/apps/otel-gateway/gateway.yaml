@@ -29,10 +29,8 @@ spec:
     exporters:
       debug:
         verbosity: detailed
-      prometheusremotewrite:
-        endpoint: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090/api/v1/write
-        tls:
-          insecure: true
+      prometheus:
+        endpoint: "0.0.0.0:8889"
 
     service:
       pipelines:
@@ -43,4 +41,4 @@ spec:
         metrics:
           receivers: [otlp]
           processors: [batch]
-          exporters: [prometheusremotewrite, debug]
+          exporters: [prometheus, debug]

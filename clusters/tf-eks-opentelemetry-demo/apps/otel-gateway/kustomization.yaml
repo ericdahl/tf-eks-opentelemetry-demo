@@ -4,3 +4,4 @@ namespace: otel
 resources:
   - gateway.yaml
   - hpa.yaml
+  - servicemonitor.yaml
