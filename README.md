@@ -5,6 +5,8 @@
 ```
 terraform apply
 
+aws eks update-kubeconfig --name tf-eks-opentelemetry-demo
+
 export GITHUB_TOKEN=<token>
 
 flux bootstrap github \
@@ -36,3 +38,9 @@ flux uninstall
 
 terraform destroy
 ```
+
+### TODO
+
+- actual metrics-backend - prometheus?
+- sidecar for apps?
+- otel demo app? https://github.com/open-telemetry/opentelemetry-helm-charts?tab=readme-ov-file
