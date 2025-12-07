@@ -30,7 +30,6 @@ flux bootstrap github \
 # necessary or else things like k8s managed LBs aren't removed, so VPC can't be removed
 flux delete kustomization apps --silent
 
-# not really needed
 flux delete kustomization infrastructure --silent
 
 # not really needed
