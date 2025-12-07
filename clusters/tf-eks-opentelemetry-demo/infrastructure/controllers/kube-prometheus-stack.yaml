@@ -42,7 +42,7 @@ spec:
           cpu: 500m
           memory: 256Mi
     nodeExporter:
-      enabled: false
+      enabled: true
     alertmanager:
       enabled: true
       alertmanagerSpec:
