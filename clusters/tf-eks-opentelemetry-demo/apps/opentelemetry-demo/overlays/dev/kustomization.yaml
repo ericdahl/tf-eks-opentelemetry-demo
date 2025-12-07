@@ -11,6 +11,6 @@ patches:
       spec:
         values:
           components:
-            frontendProxy:
+            frontend-proxy:
               service:
                 type: LoadBalancer
