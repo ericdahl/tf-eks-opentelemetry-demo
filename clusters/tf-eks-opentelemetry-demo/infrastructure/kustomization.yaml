@@ -9,3 +9,4 @@ resources:
   - controllers/cert-manager.yaml
   - controllers/opentelemetry-operator.yaml
   - controllers/kube-prometheus-stack.yaml
+  - controllers/loki.yaml
