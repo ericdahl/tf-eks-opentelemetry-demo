@@ -24,6 +24,25 @@ flux bootstrap github \
 `flux logs --follow --level=info`
 
 
+## Apps
+
+### Grafana - metrics and logs
+
+```
+kubectl port-forward -n monitoring svc/monitoring-kube-prometheus-stack-grafana 3000:80
+```
+<http://localhost:3000> with admin/admin
+
+**Datasources:**
+- Prometheus: Metrics from OpenTelemetry demo apps and cluster
+- Loki: Logs from all pods (collected via OpenTelemetry Collector)
+
+**Example log queries:**
+- All logs from otel-demo namespace: `{namespace="otel-demo"}`
+- Logs from specific pod: `{k8s_pod_name=~"frontend.*"}`
+- Error logs: `{namespace="otel-demo"} |= "error"`
+
+
 ### Cleanup
 
 ```
@@ -40,6 +59,6 @@ terraform destroy
 
 ### TODO
 
-- actual metrics-backend - prometheus?
+- traces cleanup
+- swap out demo ?
 - sidecar for apps?
-- otel demo app? https://github.com/open-telemetry/opentelemetry-helm-charts?tab=readme-ov-file
