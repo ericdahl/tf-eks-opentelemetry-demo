@@ -4519,10 +4519,10 @@ spec:
         resources:
           limits:
             cpu: 1000m
-            memory: 256Mi
+            memory: 1Gi
           requests:
             cpu: 50m
-            memory: 256Mi
+            memory: 64Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -5999,10 +5999,10 @@ spec:
         resources:
           limits:
             cpu: 1000m
-            memory: 128Mi
+            memory: 1Gi
           requests:
             cpu: 100m
-            memory: 128Mi
+            memory: 64Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -8736,10 +8736,10 @@ spec:
         resources:
           limits:
             cpu: 1000m
-            memory: 128Mi
+            memory: 1Gi
           requests:
             cpu: 100m
-            memory: 128Mi
+            memory: 64Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -10168,10 +10168,10 @@ spec:
         resources:
           limits:
             cpu: 1000m
-            memory: 128Mi
+            memory: 1Gi
           requests:
             cpu: 100m
-            memory: 128Mi
+            memory: 64Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
