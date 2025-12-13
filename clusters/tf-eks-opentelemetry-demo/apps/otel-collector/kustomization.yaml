@@ -4,3 +4,4 @@ namespace: otel
 resources:
   - namespace.yaml
   - collector.yaml
+  - rbac.yaml
