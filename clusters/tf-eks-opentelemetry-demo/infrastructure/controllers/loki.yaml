@@ -21,8 +21,7 @@ spec:
     singleBinary:
       replicas: 1
       persistence:
-        storageClass: gp2
-        size: 10Gi
+        enabled: false
     read:
       replicas: 0
     write:
